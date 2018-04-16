@@ -21,7 +21,7 @@ def go_to_chromecast_page(browser):
             browser.get("https://clients3.google.com/cast/chromecast/home")
             connected = True
         except:
-            time.sleep(2)
+            time.sleep(5)
 
 
 def set_background_img_loop(browser, last_img_uri=""):
