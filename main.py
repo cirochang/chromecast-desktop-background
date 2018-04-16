@@ -7,11 +7,12 @@ import os
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
 IMAGE_PATH = os.path.join(CURRENT_PATH, "chromecast-background.jpg")
 TEMP_IMAGE_PATH = os.path.join(CURRENT_PATH, "chromecast-background-temp.jpg")
+GECKODRIVER_PATH = os.path.join(CURRENT_PATH, "geckodriver")
 
 def init_browser():
     display = Display(visible=0, size=(800, 600))
     display.start()
-    return webdriver.Firefox(executable_path="./geckodriver")
+    return webdriver.Firefox(executable_path=GECKODRIVER_PATH)
 
 def go_to_chromecast_page(browser):
     try:
@@ -34,7 +35,7 @@ def set_background_img_loop(browser, last_img_uri=""):
             os.system('gsettings set org.gnome.desktop.background picture-uri "file://'+IMAGE_PATH+'"')
     finally:
         time.sleep(2)
-        download_background_img_loop(browser, last_img_uri)
+        set_background_img_loop(browser, last_img_uri)
 
 if __name__ == "__main__":
     print("Initializing browser in background...")

@@ -5,3 +5,4 @@ venv
 chromecast-background.jpg
 chromecast-background-temp.jpg
 geckodriver.log
+run.sh
