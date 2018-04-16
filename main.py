@@ -16,7 +16,7 @@ def init_browser():
 
 def go_to_chromecast_page(browser):
     connected = False
-    while(!connected)
+    while(connected == False):
         try:
             browser.get("https://clients3.google.com/cast/chromecast/home")
             connected = True
@@ -25,7 +25,7 @@ def go_to_chromecast_page(browser):
 
 
 def set_background_img_loop(browser, last_img_uri=""):
-    while(True)
+    while(True):
         try:
             img_uri = browser.find_element_by_id("picture-background").get_attribute("src")
             if(img_uri != last_img_uri):
