@@ -38,6 +38,8 @@ def set_background_img_loop(browser, last_img_uri=""):
                 os.system("mv %s %s 2>/dev/null" % (TEMP_IMAGE_PATH, IMAGE_PATH))
                 # set background desktop
                 os.system('gsettings set org.gnome.desktop.background picture-uri "file://'+IMAGE_PATH+'"')
+        except Exception:
+            print('error, trying again...')
         finally:
             time.sleep(2)
 
